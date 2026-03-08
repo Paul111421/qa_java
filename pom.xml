@@ -39,20 +39,15 @@
 
     <build>
         <plugins>
-            <!-- Явно объявляем плагин Surefire, чтобы переопределить настройки по умолчанию -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version> <!-- Используйте актуальную версию -->
+                <version>3.2.5</version>
                 <configuration>
-                    <!-- КЛЮЧЕВОЙ МОМЕНТ: Добавляем argLine от JaCoCo к стандартным аргументам -->
                     <argLine>@{argLine} -Xmx1024m</argLine>
-                    <!-- Символ @{...} позволяет подставить значение argLine,
-                         которое установил JaCoCo на этапе prepare-agent -->
                 </configuration>
             </plugin>
 
-            <!-- Конфигурация JaCoCo (как и раньше) -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -66,7 +61,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>test</phase> <!-- или verify -->
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
