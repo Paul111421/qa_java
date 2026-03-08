@@ -5,27 +5,74 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>untitled</artifactId>
+    <artifactId>coverage</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.12.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.11.16</version>
+        </dependency>
+
+    </dependencies>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
+            <!-- Явно объявляем плагин Surefire, чтобы переопределить настройки по умолчанию -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version> <!-- Используйте актуальную версию -->
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <!-- КЛЮЧЕВОЙ МОМЕНТ: Добавляем argLine от JaCoCo к стандартным аргументам -->
+                    <argLine>@{argLine} -Xmx1024m</argLine>
+                    <!-- Символ @{...} позволяет подставить значение argLine,
+                         которое установил JaCoCo на этапе prepare-agent -->
                 </configuration>
+            </plugin>
+
+            <!-- Конфигурация JaCoCo (как и раньше) -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.11</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase> <!-- или verify -->
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>

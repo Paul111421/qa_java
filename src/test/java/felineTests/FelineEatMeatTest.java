@@ -12,18 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
-public class FelineEatMeatCheck {
+public class FelineEatMeatTest {
 
     @Spy
     Feline feline;
-    List<String> listOfMeatExpected = new ArrayList<>();
+    List<String> listOfMeatExpected = List.of("Животные", "Птицы", "Рыба");
 
     @Test
     public void testFelineEatMeat() throws Exception {
-
-        listOfMeatExpected.add("Животные");
-        listOfMeatExpected.add("Птицы");
-        listOfMeatExpected.add("Рыба");
 
         List<String> listOfMeatActual = feline.eatMeat();
         Mockito.verify(feline).eatMeat();

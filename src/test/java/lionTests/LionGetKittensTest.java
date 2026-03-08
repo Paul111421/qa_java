@@ -10,11 +10,11 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
 
 @RunWith(Parameterized.class)
-public class LionGetKittensCheck {
+public class LionGetKittensTest extends LionBaseTest{
 
     private final int getKittensCountExpected;
 
-    public LionGetKittensCheck (int getKittensCountExpected){
+    public LionGetKittensTest(int getKittensCountExpected){
         this.getKittensCountExpected = getKittensCountExpected;
     }
 
@@ -25,10 +25,6 @@ public class LionGetKittensCheck {
                 {3}
         };
     }
-
-    IPredator feline = new Feline();
-    Lion lion = new Lion(feline);
-    Lion lionSpy = Mockito.spy(lion);
 
     @Test
     public void testFelineGetKittensNoInt(){

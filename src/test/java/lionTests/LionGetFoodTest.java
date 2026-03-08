@@ -10,11 +10,7 @@ import org.mockito.Mockito;
 import java.util.Arrays;
 import java.util.List;
 
-public class LionGetFoodCheck {
-
-    IPredator feline = new Feline();
-    Lion lion = new Lion(feline);
-    Lion lionSpy = Mockito.spy(lion);
+public class LionGetFoodTest extends LionBaseTest{
 
     List<String> listOfMeatForLionExpected = Arrays.asList("Животные", "Птицы", "Рыба");
 

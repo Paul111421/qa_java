@@ -10,7 +10,7 @@ import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class FelineGetFamilyCheck {
+public class FelineGetFamilyTest {
 
     String felineGetFamilyReturnActual;
     @Spy

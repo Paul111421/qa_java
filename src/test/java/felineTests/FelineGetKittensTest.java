@@ -8,11 +8,11 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
 
 @RunWith(Parameterized.class)
-public class FelineGetKittensCheck {
+public class FelineGetKittensTest {
 
     private final int getKittensCountExpected;
 
-    public FelineGetKittensCheck (int getKittensCountExpected){
+    public FelineGetKittensTest(int getKittensCountExpected){
         this.getKittensCountExpected = getKittensCountExpected;
     }
 

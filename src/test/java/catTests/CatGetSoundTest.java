@@ -1,7 +1,5 @@
 package catTests;
 
-import com.example.Cat;
-import com.example.Feline;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,12 +7,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CatGetSoundCheck {
-
-    private Feline feline;
-
-    Cat cat = new Cat(feline);
-    Cat catSpy = Mockito.spy(cat);
+public class CatGetSoundTest extends CatBaseTest{
 
     private String catGetSoundReturnExpected = "Мяу";
 

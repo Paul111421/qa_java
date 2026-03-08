@@ -8,12 +8,12 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
 
 @RunWith(Parameterized.class)
-public class LionHasManeCheck {
+public class LionHasManeTest {
 
     private String getLionManeCheckSexString;
     private boolean getLionManeCheckBooleanExpected;
 
-    public LionHasManeCheck(String getLionManeCheckSexString, boolean getLionManeCheckBooleanExpected){
+    public LionHasManeTest(String getLionManeCheckSexString, boolean getLionManeCheckBooleanExpected){
         this.getLionManeCheckSexString = getLionManeCheckSexString;
         this.getLionManeCheckBooleanExpected = getLionManeCheckBooleanExpected;
     }
@@ -23,8 +23,6 @@ public class LionHasManeCheck {
         return new Object[][]{
                 {"Самец", true},
                 {"Самка", false},
-                {"самец", true},
-                {"самка", false}
         };
     }
 

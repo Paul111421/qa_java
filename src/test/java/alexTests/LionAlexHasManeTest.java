@@ -10,19 +10,15 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class AlexHasManeTest {
+public class LionAlexHasManeTest extends LionAlexBaseTest{
 
-    IPredator feline = new Feline();
-    LionAlex alex = new LionAlex(feline);
-    LionAlex alexSpy = Mockito.spy(alex);
-
-    boolean alexHasManeReturnExpected = true;
+    boolean lionAlexHasManeReturnExpected = true;
 
     @Test
-    public void alexHasManeTest(){
-        boolean alexHasManeReturnActual = alexSpy.doesHaveMane();
-        Mockito.verify(alexSpy).doesHaveMane();
+    public void lionAlexHasManeTest(){
+        boolean lionAlexHasManeReturnActual = lionAlexSpy.doesHaveMane();
+        Mockito.verify(lionAlexSpy).doesHaveMane();
 
-        Assert.assertEquals(alexHasManeReturnExpected, alexHasManeReturnActual);
+        Assert.assertEquals(lionAlexHasManeReturnExpected, lionAlexHasManeReturnActual);
     }
 }
