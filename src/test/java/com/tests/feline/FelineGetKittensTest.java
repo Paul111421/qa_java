@@ -1,11 +1,10 @@
-package felineTests;
+package com.tests.feline;
 
 import com.example.Feline;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mockito;
 
 @RunWith(Parameterized.class)
 public class FelineGetKittensTest {
@@ -25,15 +24,13 @@ public class FelineGetKittensTest {
     }
 
     Feline feline = new Feline();
-    Feline felineSpy = Mockito.spy(feline);
 
     @Test
-    public void testFelineGetKittensNoInt(){
+    public void testFelineGetKittens(){
 
         int getKittensCountActual;
 
-        getKittensCountActual = felineSpy.getKittens(getKittensCountExpected);
-        Mockito.verify(felineSpy).getKittens(getKittensCountExpected);
+        getKittensCountActual = feline.getKittens(getKittensCountExpected);
 
         System.out.println(getKittensCountActual);
         Assert.assertEquals(getKittensCountExpected, getKittensCountActual);

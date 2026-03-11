@@ -1,4 +1,4 @@
-package catTests;
+package com.tests.cat;
 
 import org.junit.Assert;
 import org.junit.Test;

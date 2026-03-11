@@ -1,8 +1,10 @@
-package animalTests;
+package com.tests.animal;
 
 import com.example.Animal;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
@@ -35,11 +37,25 @@ public class AnimalGetFoodTest {
     public void animalGetFoodTest() throws Exception{
 
         List<String> animalGetFoodActual = animalSpy.getFood(animalGetFoodType);
-        Mockito.verify(animalSpy).getFood(animalGetFoodType);
 
         Assert.assertEquals(animalGetFoodExpected, animalGetFoodActual);
 
         System.out.println(animalGetFoodExpected);
         System.out.println(animalGetFoodActual);
     }
+
+    @Rule
+    public ExpectedException animalGetFoodException = ExpectedException.none();
+
+    @Test
+    public void animalGetFoodExceptionTest() throws Exception {
+
+        animalGetFoodException.expect(Exception.class);
+        animalGetFoodException.expectMessage("Неизвестный вид животного, используйте значение Травоядное или Хищник");
+
+        Animal animal = new Animal();
+        animal.getFood("Всеядный");
+
+    }
+
 }

@@ -1,11 +1,7 @@
-package lionTests;
+package com.tests.lion.lion;
 
-import com.example.Feline;
-import com.example.IPredator;
-import com.example.Lion;
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.List;

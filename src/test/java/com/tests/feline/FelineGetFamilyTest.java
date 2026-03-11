@@ -1,4 +1,4 @@
-package felineTests;
+package com.tests.feline;
 
 
 import com.example.Feline;
@@ -15,14 +15,13 @@ public class FelineGetFamilyTest {
     String felineGetFamilyReturnActual;
     @Spy
     Feline feline;
-    private String felineGetFamilyReturnExpected = "Кошачьи";
 
     @Test
     public void testFelineGetFamily(){
 
         felineGetFamilyReturnActual = feline.getFamily();
-        Mockito.verify(feline).getFamily();
 
+        String felineGetFamilyReturnExpected = "Кошачьи";
         Assert.assertEquals(felineGetFamilyReturnExpected, felineGetFamilyReturnActual);
     }
 }

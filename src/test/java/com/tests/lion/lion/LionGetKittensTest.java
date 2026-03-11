@@ -1,13 +1,9 @@
-package lionTests;
+package com.tests.lion.lion;
 
-import com.example.Feline;
-import com.example.IPredator;
-import com.example.Lion;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mockito;
 
 @RunWith(Parameterized.class)
 public class LionGetKittensTest extends LionBaseTest{
@@ -27,12 +23,11 @@ public class LionGetKittensTest extends LionBaseTest{
     }
 
     @Test
-    public void testFelineGetKittensNoInt(){
+    public void testLionGetKittens(){
 
         int getKittensCountActual;
 
         getKittensCountActual = lionSpy.getKittens(getKittensCountExpected);
-        Mockito.verify(lionSpy).getKittens(getKittensCountExpected);
 
         System.out.println(getKittensCountActual);
         Assert.assertEquals(getKittensCountExpected, getKittensCountActual);

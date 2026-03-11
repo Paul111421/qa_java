@@ -1,8 +1,7 @@
-package alexTests;
+package com.tests.lion.alex;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 public class LionAlexGetPlaceOfLivingTest extends LionAlexBaseTest{
 
@@ -10,8 +9,7 @@ public class LionAlexGetPlaceOfLivingTest extends LionAlexBaseTest{
 
     @Test
     public void lionAlexGetPlaceOfLivingTest(){
-        String placeOfLivingActual = lionAlexSpy.getPlaceOfLiving();
-        Mockito.verify(lionAlexSpy).getPlaceOfLiving();
+        String placeOfLivingActual = lionAlex.getPlaceOfLiving();
 
         System.out.println(placeOfLivingExpected);
         System.out.println(placeOfLivingActual);
