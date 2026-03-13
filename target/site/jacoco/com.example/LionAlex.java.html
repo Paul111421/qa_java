@@ -5,28 +5,21 @@ import java.util.List;
 
 public class LionAlex extends Lion{
 
-    private List&lt;String&gt; listOfAlexFriends;
-    private String placeOfLiving;
+    public LionAlex(IPredator predator, String sex) throws Exception {
+<span class="fc" id="L9">        super(predator, sex = &quot;Самец&quot;);</span>
+<span class="fc" id="L10">    }</span>
 
-<span class="fc" id="L11">    private boolean hasMane = true;</span>
-
-    public LionAlex(IPredator predator) {
-<span class="fc" id="L14">        super(predator);</span>
-<span class="fc" id="L15">    }</span>
-
-<span class="fc" id="L17">    public int getKittens(){return 0;}</span>
+<span class="fc" id="L12">    public int getKittens(){return 0;}</span>
 
     public List&lt;String&gt; getFriends(){
-<span class="fc" id="L20">        return listOfAlexFriends = Arrays.asList(&quot;Зебра Марти&quot;, &quot;Бегемотиха Глория&quot;, &quot;Жираф Мелман&quot;);</span>
+        List&lt;String&gt; listOfAlexFriends;
+<span class="fc" id="L16">        return listOfAlexFriends = Arrays.asList(&quot;Зебра Марти&quot;, &quot;Бегемотиха Глория&quot;, &quot;Жираф Мелман&quot;);</span>
     }
 
     public String getPlaceOfLiving(){
-<span class="fc" id="L24">        return placeOfLiving = &quot;Нью-Йоркский зоопарк&quot;;</span>
+        String placeOfLiving;
+<span class="fc" id="L21">        return placeOfLiving = &quot;Нью-Йоркский зоопарк&quot;;</span>
     }
 
-    @Override
-    public boolean doesHaveMane() {
-<span class="fc" id="L29">        return hasMane;</span>
-    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

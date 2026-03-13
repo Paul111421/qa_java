@@ -1,4 +1,4 @@
-package com.tests.lion.lion;
+package com.tests.lion.base;
 
 import com.example.Feline;
 import com.example.IPredator;

@@ -7,8 +7,8 @@ import org.mockito.Mockito;
 
 public class LionAlexBaseTest {
 
-        IPredator feline = new Feline();
-        LionAlex lionAlex;
+    IPredator feline = new Feline();
+    LionAlex lionAlex;
 
     {
         try {

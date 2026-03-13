@@ -1,4 +1,4 @@
-package com.tests.lion.lion;
+package com.tests.lion.base;
 
 import com.example.Feline;
 import com.example.IPredator;
@@ -17,5 +17,5 @@ public class LionBaseTest {
         }
     }
 
-    Lion lionSpy = Mockito.spy(lion);
+    protected Lion lionSpy = Mockito.spy(lion);
 }

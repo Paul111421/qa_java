@@ -5,27 +5,20 @@ import java.util.List;
 
 public class LionAlex extends Lion{
 
-    private List<String> listOfAlexFriends;
-    private String placeOfLiving;
-
-    private boolean hasMane = true;
-
-    public LionAlex(IPredator predator) {
-        super(predator);
+    public LionAlex(IPredator predator, String sex) throws Exception {
+        super(predator, sex = "Самец");
     }
 
     public int getKittens(){return 0;}
 
     public List<String> getFriends(){
+        List<String> listOfAlexFriends;
         return listOfAlexFriends = Arrays.asList("Зебра Марти", "Бегемотиха Глория", "Жираф Мелман");
     }
 
     public String getPlaceOfLiving(){
+        String placeOfLiving;
         return placeOfLiving = "Нью-Йоркский зоопарк";
     }
 
-    @Override
-    public boolean doesHaveMane() {
-        return hasMane;
-    }
 }

@@ -4,14 +4,12 @@ import java.util.List;
 
 public class Lion {
 
-    private IPredator predator;
+    private final IPredator predator;
     boolean hasMane;
 
-    public Lion(IPredator predator){
+    //По какой-то причине не подтянулось в гит. Надеюсь теперь загрузилось
+    public Lion(IPredator predator, String sex) throws Exception {
         this.predator = predator;
-    }
-
-    public Lion(String sex) throws Exception {
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
