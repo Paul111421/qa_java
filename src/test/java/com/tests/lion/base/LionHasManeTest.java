@@ -32,7 +32,7 @@ public class LionHasManeTest {
 
     @Test
     public void testLionHasMane() throws Exception {
-        IPredator feline = new Feline();
+        Feline feline = Mockito.mock(Feline.class);
         Lion lion = new Lion(feline, getLionManeCheckSexString);
         Lion lionSpy = Mockito.spy(lion);
 

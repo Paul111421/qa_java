@@ -2,11 +2,18 @@ package com.tests.cat;
 
 import com.example.Cat;
 import com.example.Feline;
-import com.example.IPredator;
-import org.mockito.Mockito;
+import org.junit.Before;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 public class CatBaseTest {
-    IPredator feline = new Feline();
+
+    @Before
+    public void init(){
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Mock
+    Feline feline;
     Cat cat = new Cat(feline);
-    Cat catSpy = Mockito.spy(cat);
 }

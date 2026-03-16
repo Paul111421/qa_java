@@ -1,13 +1,22 @@
 package com.tests.lion.alex;
 
 import com.example.Feline;
-import com.example.IPredator;
 import com.example.LionAlex;
+import org.junit.Before;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 public class LionAlexBaseTest {
 
-    IPredator feline = new Feline();
+    @Before
+    public void init(){
+        MockitoAnnotations.initMocks(this);
+    }
+
+
+    @Mock
+    Feline feline;
     LionAlex lionAlex;
 
     {

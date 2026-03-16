@@ -5,6 +5,7 @@ import com.example.LionAlex;
 import com.tests.lion.base.LionBaseTest;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 public class CommonGetKittensTest extends LionBaseTest{
@@ -41,15 +42,18 @@ public class CommonGetKittensTest extends LionBaseTest{
 
 
     //Тест получения котят для класса LionAlex
+    @Mock
+    Feline felineMock;
     LionAlex lionAlex;
     {
         try {
-            lionAlex = new LionAlex(feline, "Самец");
+            lionAlex = new LionAlex(felineMock, "Самец");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
     LionAlex lionAlexSpy = Mockito.spy(lionAlex);
+
     @Test
     public void testLionAlexGetKittens(){
 

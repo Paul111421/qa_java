@@ -7,6 +7,7 @@ import com.example.Lion;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -18,16 +19,21 @@ import java.util.List;
 public class CommonGetFoodEatMeatTest {
 
     //Тест еды для класса Cat
+
+    //Интересное наблюдение - при создании мока Feline feline или IPredator feline
+    //происходит ошибка NullPointerException. Однако просто добавление аннотации мока
+    //к IPredator feline = new Feline() отлично работает и даже в спая передаёт данные.
+    //Почистил котика, мок на зависимость поставил - вроде работает без ошибок
+    @Mock
     IPredator feline = new Feline();
     Cat cat = new Cat(feline);
-    Cat catSpy = Mockito.spy(cat);
 
     List<String> listOfMeatForCatExpected = Arrays.asList("Животные", "Птицы", "Рыба");
 
     @Test
     public void testCatGetFood() throws Exception {
 
-        List<String> listOfMeatForCatActual = catSpy.getFood();
+        List<String> listOfMeatForCatActual = cat.getFood();
 
         System.out.println(listOfMeatForCatActual);
         System.out.println(listOfMeatForCatExpected + "\n");

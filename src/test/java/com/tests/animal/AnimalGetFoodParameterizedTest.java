@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mockito;
 
 import java.util.List;
 
@@ -29,12 +28,11 @@ public class AnimalGetFoodParameterizedTest {
     }
 
     Animal animal = new Animal();
-    Animal animalSpy = Mockito.spy(animal);
 
     @Test
     public void animalGetFoodTest() throws Exception{
 
-        List<String> animalGetFoodActual = animalSpy.getFood(animalGetFoodType);
+        List<String> animalGetFoodActual = animal.getFood(animalGetFoodType);
 
         Assert.assertEquals(animalGetFoodExpected, animalGetFoodActual);
 
