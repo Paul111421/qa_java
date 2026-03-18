@@ -1,14 +1,14 @@
 package com.tests.common;
 
 import com.example.Feline;
+import com.example.IPredator;
+import com.example.Lion;
 import com.example.LionAlex;
-import com.tests.lion.base.LionBaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 
-public class CommonGetKittensTest extends LionBaseTest{
+public class CommonGetKittensTest{
 
     int getKittensCountExpected = 2;
 
@@ -29,12 +29,22 @@ public class CommonGetKittensTest extends LionBaseTest{
 
 
     //Тест получения котят для класса Lion
+    @Mock
+    IPredator felineMock = new Feline();
+    Lion lion;
+    {
+        try {
+            lion = new Lion(felineMock, "Самка");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
     @Test
     public void testLionGetKittens(){
 
         int getKittensCountActual;
 
-        getKittensCountActual = lionSpy.getKittens(getKittensCountExpected);
+        getKittensCountActual = lion.getKittens(getKittensCountExpected);
 
         System.out.println(getKittensCountActual);
         Assert.assertEquals(getKittensCountExpected, getKittensCountActual);
@@ -42,8 +52,6 @@ public class CommonGetKittensTest extends LionBaseTest{
 
 
     //Тест получения котят для класса LionAlex
-    @Mock
-    Feline felineMock;
     LionAlex lionAlex;
     {
         try {
@@ -52,15 +60,14 @@ public class CommonGetKittensTest extends LionBaseTest{
             throw new RuntimeException(e);
         }
     }
-    LionAlex lionAlexSpy = Mockito.spy(lionAlex);
 
     @Test
     public void testLionAlexGetKittens(){
 
-        int getKittensReturnActual = lionAlexSpy.getKittens();
-        Mockito.verify(lionAlexSpy).getKittens();
+        int getAlexKittensCountExpected = 0;
+        int getKittensReturnActual = lionAlex.getKittens();
 
         System.out.println(getKittensReturnActual);
-
+        Assert.assertEquals(getAlexKittensCountExpected, getKittensReturnActual);
     }
 }

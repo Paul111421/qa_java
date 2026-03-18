@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -68,14 +67,13 @@ public class CommonGetFoodEatMeatTest {
             throw new RuntimeException(e);
         }
     }
-    Lion lionSpy = Mockito.spy(lion);
 
     List<String> listOfMeatForLionExpected = Arrays.asList("Животные", "Птицы", "Рыба");
 
     @Test
     public void testLionGetFood() throws Exception {
 
-        List<String> listOfMeatForLionActual = lionSpy.getFood();
+        List<String> listOfMeatForLionActual = lion.getFood();
 
         System.out.printf(listOfMeatForLionActual.toString());
         System.out.printf(listOfMeatForLionExpected.toString() + "\n");
